@@ -15,6 +15,8 @@ library
                       Day01b
                       Day02a
                       Day02b
+                      Day03a
+                      Day03b
 
     -- Modules included in this library but not exported.
     -- other-modules:

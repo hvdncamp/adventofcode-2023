@@ -36,5 +36,3 @@ handFold (Hand r g b) string
     | otherwise         = Hand r g b
     where number = read $ head $ words string :: Int
           color  = last $ words string
-
-
