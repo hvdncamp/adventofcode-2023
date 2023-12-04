@@ -6,6 +6,10 @@ import qualified Day02a
 import qualified Day02b
 import qualified Day03a
 import qualified Day03b
+import qualified Day04a
+import qualified Day04b
+
+
 import System.Environment
 
 main :: IO ()
@@ -20,4 +24,6 @@ callProgram "2" "1"   = Day02a.antwoord
 callProgram "2" "2"   = Day02b.antwoord
 callProgram "3" "1"   = Day03a.antwoord
 callProgram "3" "2"   = Day03b.antwoord
+callProgram "4" "1"   = Day04a.antwoord
+callProgram "4" "2"   = Day04b.antwoord
 callProgram  a   b    = putStrLn $ "Day " ++ a ++ " number " ++ b ++ " has not been implemented (yet)"
