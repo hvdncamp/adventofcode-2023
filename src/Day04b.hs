@@ -9,15 +9,8 @@ antwoord = do
         print $ sum $ foldl foldCards [1 | _<-inputLines] $ zip [1..] (map (map (map read . words) . splitOn "|" . drop 10) inputLines)
 
 calculateScore :: [[Int]] -> Int
-calculateScore (winning : actual : emptyRest) = sum $ map (\a -> ifThenElse (a `elem` actual) 1 0) winning
+calculateScore (winning : actual : emptyRest) = sum $ map (\a -> if a `elem` actual then 1 else 0) winning
 calculateScore other                          = 0 -- should not be possible
 
 foldCards :: [Int] -> (Int,[[Int]]) -> [Int]
-foldCards counts (number,newCard) = let numberOfCards = counts!!(number - 1) 
-                                    in zipWith (\n i -> n + 
-                                            ifThenElse (i > number && i <= number + calculateScore newCard) numberOfCards 0) counts [1..]
-
-ifThenElse :: Bool -> p -> p -> p
-ifThenElse bool yes no 
-    |bool     = yes
-    |not bool = no
+foldCards counts (number,newCard) = zipWith (\n i -> n + if i > number && i <= number + calculateScore newCard then counts!!(number - 1) else 0) counts [1..]

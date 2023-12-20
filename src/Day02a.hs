@@ -1,6 +1,6 @@
 module Day02a where
 
-import Data.List.Split
+import Data.List.Split ( splitOn )
 
 data Hand = Hand {red :: Int, green :: Int, blue :: Int}
 
